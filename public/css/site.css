@@ -24,9 +24,9 @@
   --m4: #ff9f43;   /* Security & Integration */
 
   --radius: 16px;
-  --font-display: "Sora", "Segoe UI", system-ui, sans-serif;
-  --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
-  --font-mono: "JetBrains Mono", Consolas, monospace;
+  --font-display: "Space Grotesk", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", Consolas, monospace;
 
   /* layered-shadows (vault: depth) */
   --depth:
@@ -45,7 +45,7 @@ body {
   line-height: 1.65;
   overflow-x: hidden;
 }
-h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; text-wrap: balance; }
+h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.12; letter-spacing: -0.02em; text-wrap: balance; }
 a { color: var(--accent); text-decoration: none; }
 a:hover { text-decoration: underline; }
 img { max-width: 100%; display: block; }
