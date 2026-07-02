@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Instructor Admin · IST 5930</title>
+  <meta name="robots" content="noindex" />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/site.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔐</text></svg>" />
+</head>
+<body class="grain">
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="/">IST<b>5930</b> · Instructor Admin</a>
+      <div class="nav-links"><a href="/">← Back to site</a></div>
+    </div>
+  </nav>
+
+  <main class="admin-body">
+    <div class="admin-panel glass mc-1">
+      <h2>🔑 Instructor Key</h2>
+      <p class="muted" style="margin-top:0">Paste the admin key once — it's remembered on this device. All actions below use it.</p>
+      <div class="field">
+        <label for="admin-key">Admin key</label>
+        <input type="password" id="admin-key" placeholder="••••••••••••" autocomplete="current-password" />
+      </div>
+      <div class="status" id="key-status"></div>
+    </div>
+
+    <div class="admin-panel glass mc-2">
+      <h2>📽️ Upload Slides / Documents</h2>
+      <p class="muted" style="margin-top:0">PowerPoints, PDFs, worksheets — they appear instantly on that week's page.</p>
+      <div class="field">
+        <label for="up-week">Week</label>
+        <select id="up-week"></select>
+      </div>
+      <div class="field">
+        <label for="up-file">File (pptx, pdf, docx, xlsx, zip … max 100 MB)</label>
+        <input type="file" id="up-file" />
+      </div>
+      <button class="btn btn-accent sheen" id="up-btn">Upload</button>
+      <div class="status" id="up-status"></div>
+      <div class="docs-list" id="up-existing" style="margin-top:1rem"></div>
+    </div>
+
+    <div class="admin-panel glass mc-3">
+      <h2>🎬 Add a Video Link</h2>
+      <p class="muted" style="margin-top:0">Paste a YouTube/Vimeo link — the thumbnail is generated automatically.</p>
+      <div class="field"><label for="vid-week">Week</label><select id="vid-week"></select></div>
+      <div class="field"><label for="vid-title">Title</label><input id="vid-title" placeholder="e.g. How Boston Dynamics' Atlas actually works" /></div>
+      <div class="field"><label for="vid-url">Video URL</label><input id="vid-url" placeholder="https://www.youtube.com/watch?v=…" /></div>
+      <button class="btn btn-accent sheen" id="vid-btn">Add video</button>
+      <div class="status" id="vid-status"></div>
+      <div class="docs-list" id="vid-existing" style="margin-top:1rem"></div>
+    </div>
+
+    <div class="admin-panel glass mc-4">
+      <h2>📰 Post a Current Event</h2>
+      <p class="muted" style="margin-top:0">Shows in the “Robotics Right Now” section on the homepage (newest first).</p>
+      <div class="field"><label for="ev-title">Headline</label><input id="ev-title" placeholder="e.g. Unitree ships G1 firmware with new arm SDK" /></div>
+      <div class="field"><label for="ev-summary">One-line summary</label><textarea id="ev-summary" rows="2"></textarea></div>
+      <div class="field"><label for="ev-link">Link (optional)</label><input id="ev-link" placeholder="https://…" /></div>
+      <button class="btn btn-accent sheen" id="ev-btn">Post event</button>
+      <div class="status" id="ev-status"></div>
+      <div class="docs-list" id="ev-existing" style="margin-top:1rem"></div>
+    </div>
+  </main>
+
+  <script src="/js/admin.js" type="module"></script>
+</body>
+</html>

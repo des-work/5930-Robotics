@@ -1,0 +1,389 @@
+{
+  "course": {
+    "code": "IST 5930",
+    "title": "Embodied AI Systems",
+    "subtitle": "Building Intelligent Humanoid Robots",
+    "semester": "Fall 2026 · CSUSB IST Program · 15 Weeks",
+    "heroLine": "Learn to think, build, and troubleshoot like a robotics professional — on a real humanoid robot.",
+    "narrative": {
+      "headline": "This course is bigger than one robot.",
+      "paragraphs": [
+        "On paper, this is a project-based class: you'll work hands-on with the Unitree G1 — a real, industry-standard humanoid that talks, recognizes faces, and mimics human motion. That part is true. But the robot is the vehicle, not the destination.",
+        "What this course is really about is learning what it means to think and work as a robotics professional. Every concept — publish-subscribe networking, kinematics, perception, threat modeling, sensor analytics — is taught through practical application on the G1, but every one of them applies to the entire field of robotics. The same DDS messaging runs on quadrupeds, dual-arm manipulators, and warehouse fleets. The same retargeting math moves animated film characters and surgical robots.",
+        "You will graduate with the hands-on skills of a robotics technician — and, more importantly, with the practical thinking of someone who can walk up to any robot they've never seen before and know how to start. That kind of learning is essential if you actually want to work in this field."
+      ]
+    },
+    "outcomes": [
+      "Connect to and communicate with a robot over a publish-subscribe network",
+      "Integrate an LLM (Claude API) into a real-time voice pipeline",
+      "Record human motion and retarget it to the digital G1 robot",
+      "Identify and mitigate security/privacy risks in an embodied AI system",
+      "Analyze and visualize sensor data from a physical robot"
+    ],
+    "robots": [
+      { "name": "Unitree G1 (sb01)", "type": "Humanoid", "role": "Primary platform — all labs" },
+      { "name": "Unitree Go2", "type": "Quadruped", "role": "Week 1 contrast · locomotion" },
+      { "name": "Unitree R1", "type": "Mobile manipulator", "role": "Week 10 retargeting comparison" },
+      { "name": "ALOHA / Mobile ALOHA", "type": "Dual-arm teleop", "role": "MoCap lab · imitation learning" },
+      { "name": "Carter (mybot)", "type": "Wheeled base", "role": "Week 3 networking demo" }
+    ],
+    "tracks": [
+      { "id": "A", "name": "Conversational Agent", "midterm": "Custom persona + 1 extension (multilingual, knowledge base, campus FAQ)", "final": "Full conversation system with face ID, persistent memory, and a novel capability" },
+      { "id": "B", "name": "Motion Retargeting", "midterm": "Plot of recorded human motion vs. G1 playback", "final": "GMR-trained retargeting model; G1 executes 3+ distinct gestures on voice command" },
+      { "id": "C", "name": "Security & Analytics", "midterm": "Threat model + audit report of sb01 codebase", "final": "Hardened system + live sensor dashboard showing G1 state during a conversation" }
+    ],
+    "grading": [
+      { "item": "Weekly labs (13 × ~2%)", "weight": "25%" },
+      { "item": "Midterm project demo + writeup", "weight": "25%" },
+      { "item": "Final project demo + writeup", "weight": "35%" },
+      { "item": "Peer evaluation", "weight": "10%" },
+      { "item": "Participation", "weight": "5%" }
+    ]
+  },
+  "modules": [
+    {
+      "n": 1,
+      "name": "Foundations",
+      "weeks": "Weeks 1–4",
+      "color": "blue",
+      "question": "How do you even talk to a robot?",
+      "blurb": "Meet the machines, learn the language. You'll go from never touching a robot to sending live commands to a humanoid's joints over an industrial network — the same first steps every robotics engineer takes on a new platform.",
+      "arc": "Everything later in the course rides on this plumbing: the voice pipeline (Module 2), motion playback (Module 3), and the security audit (Module 4) all travel over the connections you build here."
+    },
+    {
+      "n": 2,
+      "name": "Conversation AI",
+      "weeks": "Weeks 5–8",
+      "color": "purple",
+      "question": "Can a robot hold a real conversation?",
+      "blurb": "Wire a large language model into a physical body. Speech comes in, Claude thinks, a voice comes out — and the robot remembers who it's talking to. This is the exact architecture behind every talking robot shipping today.",
+      "arc": "Module 1 gave the robot a nervous system; this module gives it a mind and a voice. The perception and memory you add here become the trigger for motion in Module 3 and the data you protect in Module 4."
+    },
+    {
+      "n": 3,
+      "name": "Motion Retargeting",
+      "weeks": "Weeks 9–11",
+      "color": "green",
+      "question": "How does a human motion become a robot motion?",
+      "blurb": "Capture real human movement and translate it onto a machine with different proportions, different joints, and hard physical limits. From raw motion-capture data to a learned model that smooths messy human motion into robot-ready trajectories.",
+      "arc": "Conversation made the robot responsive; motion makes it expressive. In Module 4's capstone the two merge: a voice command triggers a gesture you retargeted yourself."
+    },
+    {
+      "n": 4,
+      "name": "Security, Analytics & Integration",
+      "weeks": "Weeks 12–15",
+      "color": "orange",
+      "question": "Would you trust this robot in public?",
+      "blurb": "Think like the professional in the room: who could attack this system? What does its data reveal? You'll threat-model the robot you built, analyze its sensor streams like a fleet engineer, and integrate everything into one talking, moving, defensible system.",
+      "arc": "This is where technician skills become professional judgment — the module that turns 'I made it work' into 'I can defend how and why it works.'"
+    }
+  ],
+  "weeks": [
+    {
+      "n": 1, "module": 1, "icon": "🤖",
+      "title": "The Robot Landscape",
+      "tag": "Lecture 1",
+      "what": "A guided tour of robot body types — humanoids, quadrupeds, mobile manipulators — with live demos of the G1 standing, the Go2 walking, and ALOHA picking objects. You'll form project teams and make your very first connection to the lab machine.",
+      "why": "Professionals don't start with 'which robot is coolest' — they start with 'which body shape fits the job.' Learning to read a robot's morphology is how engineers scope every real project, whether it's a warehouse, a hospital, or a stage.",
+      "arc": "This is the map before the territory. Every platform you meet today reappears later as a contrast case that explains a design choice on the G1.",
+      "keyTerms": [
+        { "t": "Humanoid", "d": "A robot shaped like a person — two arms, two legs — so it can use spaces and tools designed for humans." },
+        { "t": "Quadruped", "d": "A four-legged robot (like the Go2). Trades human-like hands for rock-solid balance on rough ground." },
+        { "t": "Mobile manipulator", "d": "A robot arm on a moving base — it can travel AND grab things." },
+        { "t": "SSH", "d": "A secure way to open a command line on another computer over the network. It's how you'll reach the lab machine all semester." },
+        { "t": "SDK", "d": "Software Development Kit — the toolbox of code a manufacturer ships so your programs can control their robot." }
+      ],
+      "funFacts": [
+        "The word 'robot' comes from the Czech word robota — 'forced labor' — coined in a 1920 stage play, not a lab.",
+        "The Unitree G1 has more than 23 motorized joints and costs less than many new cars.",
+        "Quadrupeds became famous carrying military packs; now their descendants inspect power plants."
+      ],
+      "lab": "SSH into the lab machine and verify the Unitree SDK is installed."
+    },
+    {
+      "n": 2, "module": 1, "icon": "🐍",
+      "title": "Python for Robotics",
+      "tag": "Lecture 2",
+      "what": "A Python refresher aimed squarely at robot code: classes, async/await, callbacks, and keeping secrets in .env files. Plus the survival skill nobody teaches — how to navigate a large SDK codebase you didn't write.",
+      "why": "Real robotics work is mostly reading other people's code. The engineers who thrive aren't the ones who memorized syntax — they're the ones who can drop into a 50,000-line SDK and find the one function they need.",
+      "arc": "Every lab from here forward is Python talking to the G1. The async patterns you learn today are exactly why the voice loop in Week 6 doesn't freeze mid-sentence.",
+      "keyTerms": [
+        { "t": "Callback", "d": "A function you hand to the robot's software that gets called automatically when something happens — like 'run this when the mic hears speech.'" },
+        { "t": "Async / await", "d": "A way to let your program juggle several slow tasks (listening, thinking, speaking) without stopping and waiting on each one." },
+        { "t": "Virtual environment", "d": "A private sandbox of Python packages per project, so one project's installs can't break another's." },
+        { "t": ".env file", "d": "A hidden file that stores secrets (like API keys) outside your code — so they never end up on GitHub." },
+        { "t": "Git", "d": "A time machine for code: every saved snapshot can be revisited, compared, or shared with your team." }
+      ],
+      "funFacts": [
+        "Python is named after Monty Python, not the snake — its creator was reading the comedy scripts at the time.",
+        "Much of the world's industrial robot fleet still runs decades-old proprietary languages; Python is the modern glue layered on top.",
+        "The G1's SDK talks to the robot hundreds of times per second — your Python just steers it."
+      ],
+      "lab": "Run g1_audio_client_example.py on the G1 and make it say your name."
+    },
+    {
+      "n": 3, "module": 1, "icon": "📡",
+      "title": "Robot Networking — How Machines Talk",
+      "tag": "Lecture 3",
+      "what": "Publish-subscribe architecture: topics, publishers, subscribers, and DDS — the messaging system inside the G1. Why robots don't use ordinary web requests, contrasted live against the Carter mobile base running ROS2.",
+      "why": "Pub-sub is the lingua franca of modern robotics. The exact same pattern runs the G1, ROS2 robots, self-driving cars, and air-traffic systems. Master it once and you can eavesdrop on almost any robot on Earth.",
+      "arc": "This is the nervous system. Voice (Module 2), motion (Module 3), and the security audit (Module 4) are all just different messages flowing through the channels you open today.",
+      "keyTerms": [
+        { "t": "Publish-subscribe", "d": "Instead of asking for data, you subscribe to a named channel and updates arrive automatically — like following an account instead of refreshing a page." },
+        { "t": "Topic", "d": "A named channel for one kind of message, e.g. the G1's joint positions or its microphone audio." },
+        { "t": "DDS", "d": "Data Distribution Service — the industrial-grade pub-sub system the G1 uses. Fast enough for hundreds of updates per second." },
+        { "t": "Middleware", "d": "The software layer that moves messages between programs so they don't have to know about each other." },
+        { "t": "Latency", "d": "The delay between something happening and the message about it arriving. In robotics, milliseconds matter." }
+      ],
+      "funFacts": [
+        "DDS wasn't invented for robots — it runs naval combat systems, air-traffic control, and stock exchanges.",
+        "ROS2, the world's most popular robot framework, is built on top of DDS — learn one, get the other almost free.",
+        "The G1 publishes its full-body joint state roughly 500 times every second."
+      ],
+      "lab": "Write a DDS subscriber that prints G1 joint states live to the terminal."
+    },
+    {
+      "n": 4, "module": 1, "icon": "🦾",
+      "title": "G1 Hardware Deep Dive",
+      "tag": "Lecture 4",
+      "what": "Joints, degrees of freedom, and the arm7 layout; the onboard sensors (IMU, cameras, mic, speaker, chest LED); and the safety modes — damping, sport mode, arm SDK mode — including what breaks if you get them wrong.",
+      "why": "Software people who ignore hardware write commands that snap real gearboxes. Professionals internalize a machine's physical limits before they send it a single command — that instinct is what this week builds.",
+      "arc": "Foundations complete: after today you can find, address, and safely move any joint on the robot. Module 2 stops moving the body and starts building the mind.",
+      "keyTerms": [
+        { "t": "Degree of freedom (DoF)", "d": "One independent way a joint can move. Your shoulder alone has 3; the G1's whole arm has 7." },
+        { "t": "IMU", "d": "Inertial Measurement Unit — the robot's inner ear. Tells it which way is up and how fast it's tipping." },
+        { "t": "Actuator", "d": "The motor-plus-gearbox unit that actually moves a joint. Robots are basically actuators with opinions." },
+        { "t": "Torque", "d": "Rotational force. Every actuator has a torque limit, and exceeding it is how expensive robots become expensive paperweights." },
+        { "t": "Damping mode", "d": "A safety state where joints go soft and resist motion gently — the robot equivalent of going limp instead of fighting." }
+      ],
+      "funFacts": [
+        "Your human arm has 7 degrees of freedom — exactly the same count as the G1's arm7 layout. That's not a coincidence.",
+        "Your inner ear is a biological IMU: fluid-filled tubes doing the same job as the chip in the robot's chest.",
+        "The G1's chest LED isn't decoration — later you'll wire it to show the robot's emotional state."
+      ],
+      "lab": "Move one G1 arm joint by writing a LowCmd_ publisher; control the chest LED color."
+    },
+    {
+      "n": 5, "module": 2, "icon": "🧠",
+      "title": "LLMs and the Claude API",
+      "tag": "Lecture 5",
+      "what": "How large language models work — conceptually, no calculus: tokens, context windows, temperature. Then hands-on with the Anthropic API: system prompts, message history, keys and rate limits, and prompt-engineering a robot persona.",
+      "why": "Every talking robot shipping today has an LLM at its core. Knowing how to shape one with a system prompt — and knowing its failure modes — is now as fundamental to robotics as knowing what a motor is.",
+      "arc": "The mind arrives. This week Claude answers in a terminal; next week that same intelligence speaks through the G1's body.",
+      "keyTerms": [
+        { "t": "Token", "d": "The chunk an LLM actually reads — roughly a word or piece of a word. Models think in tokens, not letters." },
+        { "t": "Context window", "d": "The model's short-term memory: everything it can 'see' of the conversation at once." },
+        { "t": "Temperature", "d": "The randomness knob. Low = predictable and precise; high = creative and surprising." },
+        { "t": "System prompt", "d": "Standing instructions that define the model's personality, rules, and job — before the user says anything." },
+        { "t": "API key", "d": "The secret password your code uses to access the model. Leak it and strangers spend your money." }
+      ],
+      "funFacts": [
+        "At temperature 0, an LLM gives nearly the same answer every time — determinism as a dial.",
+        "The word 'hallucination' became a formal AI term because models confidently invent facts, just like the robot persona might.",
+        "A system prompt can turn one identical model into a pirate, a professor, or a campus tour guide — persona is just text."
+      ],
+      "lab": "Send a question to Claude from Python, print the reply, and experiment with wildly different system prompts."
+    },
+    {
+      "n": 6, "module": 2, "icon": "🎙️",
+      "title": "Building the Voice Conversation Loop",
+      "tag": "Lecture 6",
+      "what": "The full sb01 pipeline: G1 ASR → DDS → Python → Claude → edge-tts → PCM → G1 speaker. Async design (why you can't block the ASR callback), where latency hides, and the emotion-aware LED that reads the model's mood tags.",
+      "why": "Pipelines are how professionals think. Real robotic systems are chains of small components, each with its own delay and failure mode — the ability to trace a request through a pipeline is the debugging superpower of the whole industry.",
+      "arc": "Module 1's networking + Week 5's LLM snap together into a robot you can talk to. Week 7 adds eyes so it knows WHO it's talking to.",
+      "keyTerms": [
+        { "t": "ASR", "d": "Automatic Speech Recognition — turning microphone sound into text. The robot's ears." },
+        { "t": "TTS", "d": "Text-To-Speech — turning the model's text reply into audio. The robot's voice." },
+        { "t": "Pipeline", "d": "A chain of steps where each one's output feeds the next. Speech → text → thought → text → speech." },
+        { "t": "Blocking", "d": "When one slow step freezes everything behind it. Block the mic callback and the robot goes deaf while it thinks." },
+        { "t": "Streaming", "d": "Sending a response in small chunks as it's generated instead of waiting for the whole thing — the trick that makes robots feel quick." }
+      ],
+      "funFacts": [
+        "Humans notice a conversational pause of about 200 milliseconds — your pipeline is racing human perception itself.",
+        "The robot's 'emotions' travel as hidden text tags like <|HAPPY|> that you catch and turn into LED colors.",
+        "Streaming TTS can start the robot talking before Claude has finished writing the sentence."
+      ],
+      "lab": "Fork sb01_conversation.py, customize the persona, and add one new feature — weather, jokes, campus info, your call."
+    },
+    {
+      "n": 7, "module": 2, "icon": "👁️",
+      "title": "Perception — Seeing Who You're Talking To",
+      "tag": "Lecture 7",
+      "what": "The face-recognition pipeline: dlib → embeddings → cosine similarity. Camera access on the G1, persistent per-person memory profiles, and the privacy question that hangs over all of it: what should a robot remember about you?",
+      "why": "Perception is what separates a chatbot in a plastic shell from a robot that inhabits a space with people. And every professional who ships perception also inherits its ethics — you can't do one without the other.",
+      "arc": "The conversation system is complete: ears, mind, voice, eyes, memory. Week 8 you demo it. And the face data you store today becomes the exact thing you threat-model in Module 4.",
+      "keyTerms": [
+        { "t": "Embedding", "d": "A face (or word, or sound) compressed into a list of numbers so a computer can compare it to others." },
+        { "t": "Cosine similarity", "d": "A score for how close two embeddings point in the same direction — high score, probably the same face." },
+        { "t": "Enrollment", "d": "Capturing someone's face on purpose to create their reference embedding — the opposite of covert recognition." },
+        { "t": "Perception", "d": "Everything a robot uses to sense the world: cameras, depth, LiDAR, microphones." },
+        { "t": "PII", "d": "Personally Identifiable Information. A face embedding is PII, and the law increasingly treats it that way." }
+      ],
+      "funFacts": [
+        "A face becomes just 128 numbers in dlib's embedding — your identity, compressed to fit in a text message.",
+        "The similarity math recognizing your face is the same math search engines use to match documents.",
+        "The Go2 quadruped 'sees' with LiDAR — a spinning laser that maps the room in 3D hundreds of times a second."
+      ],
+      "lab": "Enroll 3 faces, verify the robot greets each person differently, and inspect the saved profile JSON."
+    },
+    {
+      "n": 8, "module": 2, "icon": "🏆",
+      "title": "Midterm Project Presentations",
+      "tag": "Milestone",
+      "what": "Teams demo a working G1 conversation system with a custom persona and at least one extension. No new lecture — instructor 1:1 check-ins (15 minutes per team) and structured peer feedback.",
+      "why": "Demoing a live system in front of people IS the job. Robots fail on stage constantly; learning to present, recover, and take feedback gracefully is a professional skill you'll use at every job you ever have.",
+      "arc": "Halfway checkpoint: the robot listens, thinks, speaks, and recognizes faces. The second half of the course teaches it to move.",
+      "keyTerms": [
+        { "t": "Demo", "d": "A live showing of working software on real hardware — where every hidden assumption comes out to play." },
+        { "t": "Peer feedback", "d": "Structured critique from other teams. In industry this is called design review, and it never stops." }
+      ],
+      "funFacts": [
+        "There's an industry name for demos breaking on stage: 'the demo effect.' Every roboticist has a story.",
+        "Teams that rehearse a fallback plan (video backup, simulation) are statistically the ones that survive live-demo day."
+      ],
+      "lab": "Midterm demo + writeup — worth 25% of the course grade."
+    },
+    {
+      "n": 9, "module": 3, "icon": "🎬",
+      "title": "Motion Capture Fundamentals",
+      "tag": "Lecture 8",
+      "what": "What MoCap actually is: marker-based (QTM/Qualisys) vs. markerless vs. IMU-suit capture — and the rival philosophy of teleoperation used by ALOHA. Plus the data itself: rigid-body poses, marker trajectories, frame rates.",
+      "why": "Motion data is the raw material of modern robot learning. Whether a lab records humans with markers or puppeteers a robot by teleop, someone has to understand what the data IS before any model can learn from it — that someone is you.",
+      "arc": "New module, new sense: after conversation, motion. The trajectories you plot this week are the same data you'll retarget in Week 10 and train on in Week 11.",
+      "keyTerms": [
+        { "t": "Motion capture (MoCap)", "d": "Recording real movement as 3D data, usually by tracking reflective markers with special cameras." },
+        { "t": "Rigid body", "d": "A cluster of markers treated as one solid object — like 'left forearm' — with a position and rotation." },
+        { "t": "Frame rate", "d": "Snapshots per second. MoCap systems commonly record 100–300 frames of full-body pose every second." },
+        { "t": "Teleoperation", "d": "Directly puppeteering a robot in real time — ALOHA's approach — instead of recording a human separately." },
+        { "t": "Trajectory", "d": "The path of a joint or marker through space over time. Plot it and motion becomes a readable curve." }
+      ],
+      "funFacts": [
+        "Gollum, Avatar, and most modern game characters were performed in the same marker-based MoCap systems you're learning.",
+        "A full-body suit can carry 50+ markers, each tracked to sub-millimeter precision.",
+        "ALOHA's teleop rig cost ~$20k when comparable research systems cost $200k — cheap hardware reshaped a whole research field."
+      ],
+      "lab": "Open a recorded QTM/CSV MoCap session and plot a joint trajectory with matplotlib."
+    },
+    {
+      "n": 10, "module": 3, "icon": "📐",
+      "title": "Kinematics — From Human to Robot",
+      "tag": "Lecture 9",
+      "what": "Forward kinematics without the matrix derivations — given joint angles, where does the hand end up? Then the retargeting problem: humans and the G1 have different proportions and joint limits, and the QTM → G1 adapter bridges the gap, mapping by mapping.",
+      "why": "Retargeting is the universal translation problem of robotics: motion from one body onto another. Film studios, surgical-robot teams, and humanoid startups all solve this same puzzle daily — you're learning the puzzle itself, not just one answer.",
+      "arc": "Week 9 gave you human motion as data; this week that data drives a robot skeleton. Week 11 asks what happens when hand-written mapping rules aren't enough.",
+      "keyTerms": [
+        { "t": "Forward kinematics (FK)", "d": "The math that answers: given every joint's angle, where is the hand? Skeleton in, fingertip position out." },
+        { "t": "End effector", "d": "The business end of a robot arm — the hand, gripper, or tool whose position you actually care about." },
+        { "t": "Joint limits", "d": "The hard stops. Humans bend in ways the G1 physically can't, and retargeting has to respect that." },
+        { "t": "Retargeting", "d": "Translating motion from one body to another with different bone lengths and joints — human to robot, actor to CGI character." },
+        { "t": "Workspace", "d": "The total region a robot's end effector can reach. Everything outside it is a motion the robot cannot make." }
+      ],
+      "funFacts": [
+        "The kinematics library you'll use is called pinocchio — named for the puppet who wanted a real body.",
+        "Video-game skeletons use the same FK math as robots; the difference is that games can't strip a gearbox.",
+        "Retargeting explains why a CGI giant walking never looks quite human — proportions change the physics of motion itself."
+      ],
+      "lab": "Modify one joint mapping in scripts/adapter.py and watch the effect on a recorded playback."
+    },
+    {
+      "n": 11, "module": 3, "icon": "✨",
+      "title": "Data-Driven Motion — GMR and Beyond",
+      "tag": "Lecture 10",
+      "what": "Where hand-written retargeting rules break down — and the data-driven fix. Gaussian Mixture Regression, intuition only: a model that learns smooth curves from messy demonstrations. Train on your own recorded motions and play back the smoothed result in sim.",
+      "why": "This is the doorway to modern robot learning. From GMR to the imitation-learning policies driving ALOHA and beyond, the pattern is identical: collect demonstrations, fit a model, deploy the learned motion. Once you've done it small, the research papers stop being magic.",
+      "arc": "Module 3 closes with the course's most modern idea: robots that learn motion from examples instead of being programmed. The gestures you train now become the capstone's voice-triggered moves.",
+      "keyTerms": [
+        { "t": "GMR", "d": "Gaussian Mixture Regression — fancy curve-fitting that learns one smooth, average motion from several messy human demonstrations." },
+        { "t": "Training data", "d": "The example motions you record for the model to learn from. Garbage in, garbage out — quality matters more than quantity." },
+        { "t": "Imitation learning", "d": "Teaching a robot by showing, not telling: record demonstrations, train a policy that reproduces the behavior." },
+        { "t": "Policy", "d": "In robot learning, the learned function that decides what the robot does next given what it senses now." },
+        { "t": "Overfitting", "d": "When a model memorizes its examples instead of learning the pattern — it replays your exact wobble instead of the smooth intent." }
+      ],
+      "funFacts": [
+        "The professor's honest framing of GMR is 'fancy curve-fitting' — most famous AI techniques have similarly humble cores.",
+        "ALOHA robots trained by imitation have cooked shrimp, tied cable ties, and put on shoes — from demonstrations alone.",
+        "Five demonstrations is often enough for GMR to find the smooth motion hidden inside your shaky ones."
+      ],
+      "lab": "Record 5 arm motions, train a GMR model with scripts/train_gmr.py, and play back the smoothed result in sim."
+    },
+    {
+      "n": 12, "module": 4, "icon": "🔒",
+      "title": "Security and Privacy in Robot AI",
+      "tag": "Lecture 11",
+      "what": "The attack surface of an embodied AI: the DDS network, API keys, face data, audio logs. A live threat-modeling exercise — who could attack sb01 and how? — plus hardening basics and the regulatory landscape: FERPA, CCPA, GDPR.",
+      "why": "A robot is a computer that can touch people, watch people, and remember people. The professionals who get hired to deploy robots in schools, hospitals, and homes are the ones who can answer 'what's the worst that could happen?' with a straight face and a mitigation list.",
+      "arc": "Every module you built is now a target: the network (M1), the face data and API keys (M2), the motion commands (M3). Defending your own system is the fastest way to truly understand it.",
+      "keyTerms": [
+        { "t": "Attack surface", "d": "Every point where an attacker could touch your system — network ports, stored files, API keys, even the microphone." },
+        { "t": "Threat model", "d": "A structured answer to: who might attack this, what do they want, how would they get in, and what do we do about it?" },
+        { "t": "Hardening", "d": "Systematically closing holes: secrets into .env, face photos into .gitignore, robot onto an isolated network." },
+        { "t": "FERPA", "d": "The US law protecting student records — which includes face data captured by a robot on a campus." },
+        { "t": "Network isolation", "d": "Putting the robot on its own network segment so a compromised laptop can't send it commands." }
+      ],
+      "funFacts": [
+        "Default DDS has no authentication at all — anyone on the same network can publish motion commands to an unprotected robot.",
+        "Researchers have hijacked robots through exactly this gap; 'secure by default' is still rare in robotics.",
+        "The single most common real-world robot-security failure is an API key accidentally committed to GitHub."
+      ],
+      "lab": "Audit the sb01_conversation.py repo for secrets and data exposure; write a one-page threat model."
+    },
+    {
+      "n": 13, "module": 4, "icon": "📊",
+      "title": "Data Analytics for Robotics",
+      "tag": "Lecture 12",
+      "what": "The data a robot generates — joint states, ASR logs, session summaries, MoCap trajectories — and how to interrogate it with pandas and matplotlib: time-series analysis, anomaly detection on joint positions, a simple dashboard of G1 joint load, and structured logging done right.",
+      "why": "Robot fleets live and die by telemetry. The engineer who can look at a joint-torque heatmap and say 'the left shoulder is wearing out' is the engineer who prevents the $30,000 failure. Analytics is how robotics scales beyond one lab.",
+      "arc": "You've spent 12 weeks making the robot produce data; this week the data talks back. These dashboards become Track C's final deliverable and everyone's debugging tool.",
+      "keyTerms": [
+        { "t": "Time series", "d": "Data points in time order — a joint's angle sampled 500 times a second is a time series begging to be plotted." },
+        { "t": "Anomaly detection", "d": "Automatically flagging data that doesn't look normal — a torque spike, a sensor dropout, a joint drifting from its command." },
+        { "t": "Telemetry", "d": "The continuous stream of measurements a machine reports about itself. Rockets have it; so does the G1." },
+        { "t": "Structured logging", "d": "Writing logs as machine-readable JSON instead of loose print statements — so future-you can query them like a database." },
+        { "t": "Heatmap", "d": "A grid colored by value — the fastest way to see which joints work hardest across a whole session." }
+      ],
+      "funFacts": [
+        "A single teleoperation session on the G1 can generate hundreds of megabytes of joint telemetry.",
+        "NASA has been doing 'robot analytics' since the 1970s — Mars rovers are debugged almost entirely through telemetry.",
+        "Predictive maintenance — replacing a part because the data says it's about to fail — saves factories billions a year."
+      ],
+      "lab": "Load a G1 joint-state recording, find the peak-torque joint, and plot a heatmap of usage over time."
+    },
+    {
+      "n": 14, "module": 4, "icon": "🔗",
+      "title": "Capstone Integration — Robots That Talk and Move",
+      "tag": "Lecture 13",
+      "what": "The full architecture review: how conversation, perception, and motion retargeting connect into one system. Live integration demo — a voice command triggers a retargeted gesture — plus the course retrospective: what's still hard (latency, safety, the ethics of autonomous humanoids).",
+      "why": "Integration is where robotics projects actually fail. Components that work alone fight each other when combined — over timing, over resources, over the network. Learning to reason about a whole system, not just its parts, is the final step from student to professional.",
+      "arc": "The arc completes: nervous system (M1) + mind and senses (M2) + motion (M3) + professional judgment (M4) = one robot that hears you, understands you, and moves for you. Week 15 you show the world.",
+      "keyTerms": [
+        { "t": "System architecture", "d": "The bird's-eye diagram of every component and every arrow between them — the first thing drawn on any professional whiteboard." },
+        { "t": "Integration", "d": "Making separately-built components work as one system. Famously the hardest 20% that takes 80% of the time." },
+        { "t": "Latency budget", "d": "Dividing your total acceptable delay across pipeline stages — if the whole loop gets 1 second, who gets how many milliseconds?" },
+        { "t": "Graceful degradation", "d": "Designing so that when one component dies, the system limps instead of collapsing — the voice keeps working even if the camera doesn't." }
+      ],
+      "funFacts": [
+        "Industry folklore: integration takes as long as building all the components combined. Plan accordingly.",
+        "The hardest open problems named in this lecture — latency, safety, ethics — are the same ones unsolved at the frontier labs.",
+        "A physical G1 demo at finals earns bonus points; simulation is the safety net, not the goal."
+      ],
+      "lab": "Presentations prep and rubric review — bring your architecture diagram."
+    },
+    {
+      "n": 15, "module": 4, "icon": "🎓",
+      "title": "Final Project Presentations",
+      "tag": "Milestone",
+      "what": "Final demos: 12 minutes per team plus 3 minutes of Q&A. Every track demos on the physical G1 (or Isaac Sim if hardware access is constrained) — and a physical-robot demo earns bonus points.",
+      "why": "This is the portfolio moment. A working demo on real hardware, presented clearly under pressure, is worth more in a robotics job interview than any line on a résumé — and now you have one.",
+      "arc": "Fifteen weeks ago you SSH'd into a machine for the first time. Today a humanoid robot listens, thinks, sees, remembers, and moves — because you built it. That's the whole journey.",
+      "keyTerms": [
+        { "t": "Capstone", "d": "The final integrated project that proves everything the course taught — your evidence that the skills are real." },
+        { "t": "Q&A defense", "d": "Answering unrehearsed questions about your design choices. If you can defend the WHY, you truly own the work." }
+      ],
+      "funFacts": [
+        "Hiring managers in robotics consistently rank 'show me something you built' above GPA.",
+        "Every professional roboticist keeps their first demo video forever. Record yours."
+      ],
+      "lab": "Final demo + writeup — 35% of the grade. Ship it."
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IST 5930 · Embodied AI Systems — Building Intelligent Humanoid Robots</title>
+  <meta name="description" content="CSUSB IST 5930 Fall 2026 — learn to think and work like a robotics professional on a real Unitree G1 humanoid robot." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/css/site.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>" />
+</head>
+<body class="grain">
+  <div class="progressbar" id="progressbar"></div>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="nav-logo" href="/">IST<b>5930</b> · Embodied AI</a>
+      <div class="nav-links">
+        <a href="#why">Why This Course</a>
+        <a href="#journey">The Journey</a>
+        <a href="#modules">Modules</a>
+        <a href="#weeks">Weekly Plan</a>
+        <a href="#events">Current Events</a>
+        <a href="#info">Course Info</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="wrap">
+      <div class="hero-code"><span class="typewriter" style="--steps:34; --tw:34ch;">CSUSB · IST 5930 · FALL 2026 · SB01</span></div>
+      <h1><span class="grad-shift">Embodied AI Systems</span></h1>
+      <p class="hero-sub">Build a talking, seeing, moving AI on a <strong>real Unitree G1 humanoid robot</strong> — and learn what it means to think and work like a robotics professional.</p>
+      <div class="hero-cta">
+        <a class="btn btn-accent sheen" href="#weeks">Explore the 15 Weeks</a>
+        <a class="btn sheen" href="#why">Why This Course Is Different</a>
+      </div>
+      <div class="ticker">
+        <div><div class="num" data-count="15">0</div><div class="lbl">Weeks</div></div>
+        <div><div class="num" data-count="23">0</div><div class="lbl">Robot Joints</div></div>
+        <div><div class="num" data-count="5">0</div><div class="lbl">Robot Platforms</div></div>
+        <div><div class="num" data-count="3">0</div><div class="lbl">Project Tracks</div></div>
+        <div><div class="num" data-count="500">0</div><div class="lbl">Joint Updates / Sec</div></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ NARRATIVE ============ -->
+  <section class="narrative" id="why">
+    <div class="wrap">
+      <div class="glass narrative-card reveal" id="narrative-card">
+        <span class="kicker">The Real Point of This Course</span>
+        <!-- filled by app.js from course.json -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ JOURNEY ARC ============ -->
+  <section class="journey" id="journey">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">One Semester, One Arc</span>
+        <h2>Every week builds the same robot — and the same professional</h2>
+        <p class="muted">Four modules, one continuous system. Hover a node to see how each stage feeds the next.</p>
+      </div>
+      <div class="reveal" id="journey-svg"><!-- SVG injected by app.js --></div>
+    </div>
+  </section>
+
+  <!-- ============ Z-PATTERN MODULES ============ -->
+  <section id="modules" style="padding-top:1rem;">
+    <div class="section-head reveal">
+      <span class="kicker">Learning Modules</span>
+      <h2>Four modules, one machine that comes alive</h2>
+    </div>
+    <div class="l-z" id="modules-z"><!-- rows injected by app.js --></div>
+  </section>
+
+  <!-- ============ WEEKS GRID ============ -->
+  <section id="weeks">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Weekly Lesson Plan</span>
+        <h2>Fifteen weeks, click any one to dive in</h2>
+        <p class="muted">Each week has plain-language key terms, the <em>why</em> behind the lesson, fun facts, videos, and the professor's slides.</p>
+      </div>
+      <div class="weeks-grid stagger" id="weeks-grid"><!-- cards injected by app.js --></div>
+    </div>
+  </section>
+
+  <!-- ============ CURRENT EVENTS ============ -->
+  <section id="events">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Robotics Right Now</span>
+        <h2>Current events from the field</h2>
+        <p class="muted">The robotics world moves fast — updates the professor wants you to see.</p>
+      </div>
+      <div class="events-list stagger" id="events-list">
+        <div class="empty">Loading current events…</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ COURSE INFO ============ -->
+  <section id="info" style="background: var(--bg-deep);">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <span class="kicker">Course Info</span>
+        <h2>Tracks, grading &amp; the robot fleet</h2>
+      </div>
+      <div class="info-grid stagger" id="info-grid"><!-- injected by app.js --></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap foot-inner">
+      <div>IST 5930 · Embodied AI Systems · CSUSB IST Program · Fall 2026</div>
+      <div><a href="https://16-831-s24.github.io/lectures/" target="_blank" rel="noopener">Course references</a> · <a href="/admin">Instructor login</a></div>
+    </div>
+  </footer>
+
+  <script src="/js/app.js" type="module"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "name": "ist5930-robotics",
+  "compatibility_date": "2026-06-20",
+  "pages_build_output_dir": "public",
+  "kv_namespaces": [
+    { "binding": "DYNAMIC", "id": "a91481325e504fdcae9198d8d4902475" }
+  ],
+  "r2_buckets": [
+    { "binding": "DOCS", "bucket_name": "ist5930-docs" }
+  ]
+}
