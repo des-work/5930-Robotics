@@ -91,6 +91,7 @@ document.getElementById("modules-z").innerHTML = modules.map(m => `
 /* ---------- weeks grid ---------- */
 document.getElementById("weeks-grid").innerHTML = weeks.map(w => `
   <a class="week-card glass spot sheen mc-${w.module}" href="/week?w=${w.n}">
+    <span class="ghostnum">${String(w.n).padStart(2, "0")}</span>
     <span class="icon">${w.icon}</span>
     <span class="wk">Week ${String(w.n).padStart(2, "0")} · ${w.tag}</span>
     <h4>${w.title}</h4>
