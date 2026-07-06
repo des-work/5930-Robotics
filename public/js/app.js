@@ -13,6 +13,27 @@ nar.insertAdjacentHTML("beforeend",
   course.narrative.paragraphs.map(p => `<p>${p}</p>`).join("")
 );
 
+/* ---------- professor ---------- */
+const prof = course.instructor;
+if (prof) {
+  document.getElementById("prof-card").innerHTML = `
+    <div class="prof-fig grad-border mc-4"><div class="media-inner">
+      <img src="${prof.image}" alt="${prof.imageAlt}" width="450" height="658" loading="lazy" />
+    </div></div>
+    <div class="prof-copy">
+      <span class="kicker" style="--mc: var(--m4)">${prof.kicker}</span>
+      <h2>${prof.headline}</h2>
+      <div class="prof-tagline">${prof.tagline.map(t => `<span>${t}</span>`).join("")}</div>
+      ${prof.paragraphs.map(p => `<p>${p}</p>`).join("")}
+      <ul class="prof-timeline">
+        ${prof.timeline.map(t => `<li><span class="yr">${t.years}</span><span>${t.label}</span></li>`).join("")}
+      </ul>
+      <div class="prof-links">
+        ${prof.links.map(l => `<a class="btn sheen" href="${l.url}" target="_blank" rel="noopener">${l.label} →</a>`).join("")}
+      </div>
+    </div>`;
+}
+
 /* ---------- journey arc SVG ---------- */
 const jx = [130, 420, 700, 960];
 const jy = [150, 78, 150, 78];

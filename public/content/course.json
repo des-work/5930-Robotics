@@ -13,6 +13,30 @@
         "You will graduate with the hands-on skills of a robotics technician — and, more importantly, with the practical thinking of someone who can walk up to any robot they've never seen before and know how to start. That kind of learning is essential if you actually want to work in this field."
       ]
     },
+    "instructor": {
+      "kicker": "Meet Your Professor",
+      "name": "Yutong Liu",
+      "headline": "She started from nowhere. Now she builds robot brains.",
+      "tagline": ["Enthusiast", "Life-Learner", "Machine-Believer"],
+      "paragraphs": [
+        "Professor Yutong Liu did not grow up writing code. She spent her twenties as a local news journalist in China, then a decade as a PR consultant for BMW, Mercedes, and Audi — and lost $100K on a noodle restaurant along the way. Her first line of Python came after all of that.",
+        "Since retraining at CSUSB — a master's in instructional design, a master's in computer science, and now a PhD in mathematical computing — she has worked at the intersection of VR, motion capture, and robotics: building AI mentors, MoCap-driven virtual humans, and the conversational brain of the very G1 you'll be working with. Her story is this course's thesis in miniature: robotics belongs to anyone willing to learn it."
+      ],
+      "timeline": [
+        { "years": "2002–05", "label": "Local social-news journalist, China" },
+        { "years": "2005–14", "label": "PR consultant for BMW, Mercedes & Audi" },
+        { "years": "2015–16", "label": "Lost $100K on a noodle-shop venture" },
+        { "years": "2016–19", "label": "M.Ed Instructional Design, CSUSB — while working 3 campus jobs" },
+        { "years": "2020–24", "label": "M.S. Computer Science & Engineering" },
+        { "years": "2025–now", "label": "PhD Mathematical Computing · VR, MoCap & Robotics research" }
+      ],
+      "links": [
+        { "label": "YouTube Channel", "url": "https://www.youtube.com/@yutongliu726" },
+        { "label": "LinkedIn", "url": "https://www.linkedin.com/in/liu-yutong312/" }
+      ],
+      "image": "/img/professor.webp",
+      "imageAlt": "Illustration of Professor Yutong Liu in a powered orange robot exosuit flying above a city skyline"
+    },
     "outcomes": [
       "Connect to and communicate with a robot over a publish-subscribe network",
       "Integrate an LLM (Claude API) into a real-time voice pipeline",

@@ -225,6 +225,52 @@ section { padding: 4.5rem 0; }
 .narrative-flow p:first-of-type { color: var(--text); font-size: 1.28rem; line-height: 1.55; font-weight: 500; }
 .narrative-flow p + p { margin-top: 1.15rem; }
 
+/* ---------- professor (editorial-float + grad-border portrait) ---------- */
+.prof { background: var(--bg); overflow: hidden; padding-top: 1.5rem; }
+.prof-grid {
+  position: relative; max-width: 980px; margin: 0 auto;
+  display: grid; grid-template-columns: 300px 1fr; gap: 3.2rem; align-items: center;
+}
+.prof-grid::before { /* ghost stroke word floating behind, same language as MINDSET */
+  content: "NOWHERE"; position: absolute; z-index: -1; left: -9rem; bottom: -4.6rem;
+  font-family: var(--font-display); font-weight: 700; font-size: clamp(5rem, 13vw, 9.5rem);
+  letter-spacing: .04em; color: transparent;
+  -webkit-text-stroke: 1px rgba(148, 197, 255, .12);
+  pointer-events: none; user-select: none;
+}
+.prof-fig { rotate: -1.4deg; transition: rotate .4s cubic-bezier(.22, 1, .36, 1); }
+.prof-grid:hover .prof-fig { rotate: 0deg; }
+.prof-fig img { display: block; width: 100%; height: auto; }
+.prof-copy { position: relative; padding-left: 2.2rem; }
+.prof-copy::before { /* glowing spine, same language as the narrative */
+  content: ""; position: absolute; left: 0; top: .4rem; bottom: .4rem; width: 2px;
+  background: linear-gradient(180deg, var(--m4), var(--m2) 55%, transparent);
+  box-shadow: 0 0 14px var(--m4);
+}
+.prof-copy h2 { margin: .4rem 0 .6rem; font-size: clamp(1.7rem, 3.6vw, 2.4rem); }
+.prof-tagline {
+  font-family: var(--font-mono); font-size: .8rem; letter-spacing: .22em;
+  text-transform: uppercase; color: var(--m4); margin-bottom: 1.1rem;
+}
+.prof-tagline span + span::before { content: "·"; margin: 0 .7em; color: var(--muted); }
+.prof-copy p { color: var(--muted); max-width: 58ch; }
+.prof-copy p:first-of-type { color: var(--text); font-size: 1.08rem; line-height: 1.6; }
+.prof-copy p + p { margin-top: 1rem; }
+.prof-timeline { list-style: none; margin: 1.4rem 0 1.6rem; padding: 0; display: grid; gap: .45rem; }
+.prof-timeline li { display: grid; grid-template-columns: 6.2rem 1fr; gap: 1rem; align-items: baseline; font-size: .92rem; }
+.prof-timeline .yr { font-family: var(--font-mono); font-size: .8rem; color: var(--m4); text-align: right; }
+.prof-timeline li span:last-child { color: var(--muted); position: relative; padding-left: 1rem; }
+.prof-timeline li span:last-child::before {
+  content: ""; position: absolute; left: 0; top: .42em; width: 6px; height: 6px;
+  background: var(--m4); clip-path: polygon(0 0, 100% 0, 100% 100%); opacity: .8;
+}
+.prof-links { display: flex; gap: .8rem; flex-wrap: wrap; }
+@media (max-width: 760px) {
+  .prof-grid { grid-template-columns: 1fr; gap: 2.2rem; }
+  .prof-fig { max-width: 260px; margin: 0 auto; }
+  .prof-grid::before { left: -2rem; bottom: -3rem; }
+}
+
 /* ---------- journey arc ---------- */
 .journey svg { width: 100%; height: auto; display: block; }
 .journey .node-label { font-family: var(--font-display); font-weight: 600; fill: var(--text); }
